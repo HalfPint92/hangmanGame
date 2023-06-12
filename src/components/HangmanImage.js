@@ -1,7 +1,7 @@
 import React from 'react';
 
 const HangmanImage = ({ remainingGuesses }) => {
-  const imageSource = `./hangmandrawings/state${11 - remainingGuesses}.GIF`;
+  const imageSource = `../hangmandrawings/state${11 - remainingGuesses}.GIF`;
 
   return (
     <div>
