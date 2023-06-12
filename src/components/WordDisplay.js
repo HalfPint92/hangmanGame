@@ -2,7 +2,6 @@ import React from 'react';
 import './WordDisplay.css';
 
 const WordDisplay = ({ targetWord, guessedLetters }) => {
-
   const hiddenWord = targetWord
     .split('')
     .map((letter) => (guessedLetters.includes(letter) ? letter : '_'))

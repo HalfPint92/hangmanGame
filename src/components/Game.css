@@ -1,0 +1,27 @@
+.game-container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #272626;
+    border-radius: 8px;
+}
+
+.win-message {
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.lose-message {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 48px;
+    margin-bottom: 16px;
+    
+  }

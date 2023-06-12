@@ -1,6 +1,5 @@
-/* WordDisplay.css */
 .word-display {
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-  
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}

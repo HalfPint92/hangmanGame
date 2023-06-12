@@ -1,0 +1,10 @@
+.hangman-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .hangman-image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
