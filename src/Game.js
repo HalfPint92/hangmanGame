@@ -6,7 +6,7 @@ import HangmanImage from './HangmanImage';
 const Game = () => {
     const targetWord = 'hangman';
     const [guessedLetters, setGuessedLetters] = useState([]);
-    const [remainingGuesses, setRemainingGuesses] = useState(6);
+    const [remainingGuesses, setRemainingGuesses] = useState(10);
 
     const handleLetterClick = (letter) => {
         if (!guessedLetters.includes(letter)) {
@@ -20,7 +20,7 @@ const Game = () => {
 
     const handleRestartGame = () => {
         setGuessedLetters([]);
-        setRemainingGuesses(6);
+        setRemainingGuesses(10);
     };
 
     const gameWon = targetWord
