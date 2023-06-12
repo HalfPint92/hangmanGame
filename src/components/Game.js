@@ -1,12 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import WordDisplay from './WordDisplay';
 import LetterButton from './LetterButton';
 import HangmanImage from './HangmanImage';
 
 const Game = () => {
-    const targetWord = 'hangman';
+    const [targetWord, setTargetWord] = useState('');
     const [guessedLetters, setGuessedLetters] = useState([]);
     const [remainingGuesses, setRemainingGuesses] = useState(10);
+
+    useEffect(() => {
+        const fetchWordFromDictionary = async () => {
+            try {
+                const response = await fetch('/dictionary.txt');
+                const text = await response.text();
+                const words = text.split('\n').filter((word) => word.length > 0);
+                const randomIndex = Math.floor(Math.random() * words.length);
+                const randomWord = words[randomIndex].toLowerCase();
+                setTargetWord(randomWord);
+            } catch (error) {
+                console.error('Error fetching word from dictionary:', error);
+            }
+        };
+
+        fetchWordFromDictionary();
+    }, []);
 
     const handleLetterClick = (letter) => {
         if (!guessedLetters.includes(letter)) {
