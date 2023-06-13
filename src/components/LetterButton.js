@@ -2,6 +2,7 @@ import React from 'react';
 import './LetterButton.css';
 
 const LetterButton = ({ letter, onClick, disabled, discoMode, isHint }) => {
+  // Handles the click event of the button
   const handleClick = () => {
     if (!disabled) {
       if (isHint) {
@@ -12,6 +13,7 @@ const LetterButton = ({ letter, onClick, disabled, discoMode, isHint }) => {
     }
   };
 
+  // JSX to render
   return (
     <button
       className={`letter-button ${discoMode ? 'disco' : ''} ${isHint ? 'hint' : ''}`}

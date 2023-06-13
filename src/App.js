@@ -5,13 +5,15 @@ import HangmanImage from './components/HangmanImage';
 import './App.css';
 
 const App = () => {
-  const [targetWord, setTargetWord] = useState('');
-  const [guessedLetters, setGuessedLetters] = useState([]);
-  const [remainingGuesses, setRemainingGuesses] = useState(10);
-  const [discoMode, setDiscoMode] = useState(false);
-  const [hint, setHint] = useState('');
-  const [helpVisible, setHelpVisible] = useState(false);
+  // State variables
+  const [targetWord, setTargetWord] = useState(''); // Stores the target word to guess
+  const [guessedLetters, setGuessedLetters] = useState([]); // Stores the letters that have been guessed
+  const [remainingGuesses, setRemainingGuesses] = useState(10); // Stores the number of remaining guesses
+  const [discoMode, setDiscoMode] = useState(false); // Stores the state of disco mode
+  const [hint, setHint] = useState(''); // Stores the hint for the target word
+  const [helpVisible, setHelpVisible] = useState(false); // Stores the visibility state of the help content
 
+  // Fetches a word from a dictionary file
   const fetchWordFromDictionary = async () => {
     try {
       const response = await fetch('/dictionary.txt');
@@ -25,10 +27,12 @@ const App = () => {
     }
   };
 
+  // Fetches a word from the dictionary when the component mounts
   useEffect(() => {
     fetchWordFromDictionary();
   }, []);
 
+  // Handles a letter click event
   const handleLetterClick = (letter) => {
     if (!guessedLetters.includes(letter)) {
       setGuessedLetters([...guessedLetters, letter]);
@@ -39,16 +43,19 @@ const App = () => {
     }
   };
 
+  // Restarts the game by resetting the state variables and fetching a new word
   const handleRestartGame = () => {
     setGuessedLetters([]);
     setRemainingGuesses(10);
     fetchWordFromDictionary();
   };
 
+  // Toggles the disco mode state
   const handleDiscoMode = () => {
     setDiscoMode(!discoMode);
   };
 
+  // Handles the hint button click event
   const handleHint = () => {
     const unguessedLetters = targetWord
       .split('')
@@ -61,15 +68,23 @@ const App = () => {
     if (!targetWord.includes(randomLetter)) {
       setRemainingGuesses(remainingGuesses - 1);
     }
+
+    // Set the hint state to the randomly selected letter
+    setHint(randomLetter);
   };
 
+  // Toggles the visibility of the help content
   const toggleHelp = () => {
     setHelpVisible(!helpVisible);
   };
 
+  // Checks if the game has been won
   const gameWon = targetWord.split('').every((letter) => guessedLetters.includes(letter));
+
+  // Checks if the game has been lost
   const gameLost = remainingGuesses === 0;
 
+  // JSX to render
   return (
     <div className="game-container">
       <h1>Hangman Game</h1>
@@ -106,7 +121,7 @@ const App = () => {
         <button className="hint-button" onClick={handleHint}>
           Hint
         </button>
-        {hint && <p className="hint-message">Hint: {hint}</p>}
+        
 
         <button className="help-button" onClick={toggleHelp}>
           Help
