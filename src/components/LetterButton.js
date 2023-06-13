@@ -1,14 +1,24 @@
 import React from 'react';
 import './LetterButton.css';
 
-const LetterButton = ({ letter, onClick, disabled }) => {
+const LetterButton = ({ letter, onClick, disabled, discoMode, isHint }) => {
+  const handleClick = () => {
+    if (!disabled) {
+      if (isHint) {
+        onClick();
+      } else {
+        onClick(letter);
+      }
+    }
+  };
+
   return (
     <button
-      className={`letter-button ${disabled ? 'disabled' : ''}`}
-      onClick={() => onClick(letter)}
+      className={`letter-button ${discoMode ? 'disco' : ''} ${isHint ? 'hint' : ''}`}
+      onClick={handleClick}
       disabled={disabled}
     >
-      {letter}
+      {isHint ? '?' : letter}
     </button>
   );
 };

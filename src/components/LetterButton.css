@@ -1,21 +1,90 @@
 .letter-button {
-    display: inline-block;
-    margin: 5px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #f0f0f0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.letter-button:hover {
+  background-color: #ccc;
+}
+
+.letter-button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.restart-button {
+  background-color: #f49236;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.disco-button {
+  background-color: #ffeb3b;
+  color: #333;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.disco {
+  animation: flash 1s infinite;
+}
+
+@keyframes flash {
+  0% {
+    background-color: red;
   }
-  
-  .letter-button:hover {
-    background-color: #ccc;
+
+  25% {
+    background-color: green;
   }
-  
-  .letter-button.disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+
+  50% {
+    background-color: blue;
   }
-  
+
+  75% {
+    background-color: yellow;
+  }
+
+  100% {
+    background-color: orange;
+  }
+}
+
+.hint-button {
+  background-color: #3f51b5;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.help-button {
+  background-color: #3fb566;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+}
