@@ -121,7 +121,7 @@ const App = () => {
         <button className="hint-button" onClick={handleHint}>
           Hint
         </button>
-        
+        {hint && console.log('Hint:', hint)}
 
         <button className="help-button" onClick={toggleHelp}>
           Help
